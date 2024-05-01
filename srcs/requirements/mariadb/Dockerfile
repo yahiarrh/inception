@@ -8,7 +8,8 @@ COPY script.sh /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/script.sh
 
-
 RUN script.sh
+
+RUN rm -rf script.sh
 
 CMD ["mysqld_safe"]
