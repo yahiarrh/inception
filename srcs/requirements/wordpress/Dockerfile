@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-RUN apt update -y && apt upgrade\
+RUN apt update -y && apt upgrade -y\
     && apt-get -y install wget
 
 RUN apt-get install -y php7.4\
