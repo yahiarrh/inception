@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+    wordpress:
+        build:
+            image: wordpress:alik
+            ports:
+                - "80:80"
+            restarts: unless-stopped
+    
