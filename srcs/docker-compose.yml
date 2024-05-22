@@ -1,9 +1,56 @@
 version: '3'
 
 services:
-    wordpress: 
+     mariadb: 
+        build:
+         context: ./requirements/mariadb
+         args:
+            SQL_DATABASE: ${SQL_DATABASE}
+            SQL_PASSWORD: ${SQL_PASSWORD}
+            SQL_USER: ${SQL_USER}
+            SQL_ROOT_PASSWORD: ${SQL_ROOT_PASSWORD}
+        container_name: mariadb
+        image: mariadb:yrrhaibi
+        env_file: .env
+        networks:
+         - connection
+        volumes:
+         - mariadb:/var/lib/mysql
+        restart: on-failure
+
+     wordpress: 
         build: ./requirements/wordpress
+        container_name: wordpress
+        image: wordpress:yrrhaibi
+        env_file: .env
+        networks:
+         - connection
+        volumes:
+         - wordpress:/var/www/wordpress
+        depends_on:
+         - mariadb
+        restart: on-failure
+
+
+     nginx: 
+        build: ./requirements/nginx
+        container_name: nginx
+        image: nginx:yrrhaibi
+        networks:
+         - connection
+        depends_on:
+         - wordpress
+        volumes:
+         - wordpress:/var/www/wordpress
         ports:
-            - "80:80"
-        restarts: unless-stopped
-    
+         - 443:443
+        restart: on-failure
+
+
+networks:
+   connection: 
+      driver: bridge
+
+volumes:
+  mariadb:
+  wordpress:

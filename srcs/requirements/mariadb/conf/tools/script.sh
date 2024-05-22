@@ -1,10 +1,5 @@
 #!bin/bash
 
-SQL_DATABASE=a
-SQL_USER=yahia
-SQL_PASSWORD=0403
-SQL_ROOT_PASSWORD=123
-
 service mariadb start
 
 mysql -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
