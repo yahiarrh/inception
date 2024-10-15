@@ -53,4 +53,15 @@ networks:
 
 volumes:
   mariadb:
+   driver: local
+   driver_opts:
+      type: none
+      o: bind
+      device: /home/yrrhaibi/data
   wordpress:
+   driver: local
+   driver_opts:
+      type: none
+      o: bind
+      device: /home/yrrhaibi/data
+   
