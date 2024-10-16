@@ -14,7 +14,7 @@ WORKDIR /var/www
 
 RUN tar -xzf latest.tar.gz && rm latest.tar.gz
 
-RUN	chown -R root:root /var/www/wordpress && \
+RUN	chown -R www-data:www-data /var/www/wordpress && \
 	mkdir -p /run/php/ && \
 	chown -R www-data:www-data /run/php/
 
