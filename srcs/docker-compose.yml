@@ -12,6 +12,11 @@ services:
         container_name: mariadb
         image: mariadb:yrrhaibi
         env_file: .env
+        environment:
+            SQL_DATABASE: ${SQL_DATABASE}
+            SQL_PASSWORD: ${SQL_PASSWORD}
+            SQL_USER: ${SQL_USER}
+            SQL_ROOT_PASSWORD: ${SQL_ROOT_PASSWORD}
         networks:
          - connection
         volumes:
@@ -53,15 +58,17 @@ networks:
 
 volumes:
   mariadb:
+   name: mariadb
    driver: local
    driver_opts:
       type: none
       o: bind
-      device: /home/yrrhaibi/data
+      device: /home/yrrhaibi/data/mariadb
   wordpress:
+   name: wordpress
    driver: local
    driver_opts:
       type: none
       o: bind
-      device: /home/yrrhaibi/data
+      device: /home/yrrhaibi/data/wordpress
    

@@ -12,7 +12,7 @@ RUN wget https://wordpress.org/latest.tar.gz -P /var/www
 
 WORKDIR /var/www
 
-RUN tar -xzf latest.tar.gz && rm latest.tar.gz
+RUN tar -xzf latest.tar.gz -C /var/www && rm latest.tar.gz
 
 RUN	chown -R www-data:www-data /var/www/wordpress && \
 	mkdir -p /run/php/ && \
