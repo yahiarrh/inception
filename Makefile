@@ -12,3 +12,6 @@ prune:
 	docker system prune -af
 
 fclean: down prune
+	@docker volume rm mariadb wordpress
+	@sudo rm -rf /home/yrrhaibi/data/mariadb/*
+	@sudo rm -rf /home/yrrhaibi/data/wordpress/*
