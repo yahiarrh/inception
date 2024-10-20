@@ -54,6 +54,7 @@ services:
 
 networks:
    connection: 
+      name: connection
       driver: bridge
 
 volumes:
