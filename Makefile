@@ -10,3 +10,5 @@ restart: down up
 
 prune:
 	docker system prune -af
+
+fclean: down prune

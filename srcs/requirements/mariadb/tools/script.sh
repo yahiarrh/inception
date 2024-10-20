@@ -13,3 +13,5 @@ mariadb -u root -p$SQL_ROOT_PASSWORD -e "ALTER USER 'root'@'localhost' IDENTIFIE
 mariadb -u root -p$SQL_ROOT_PASSWORD -e "FLUSH PRIVILEGES;"
 
 mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown 
+
+exec mysqld_safe
