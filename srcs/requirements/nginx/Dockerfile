@@ -8,7 +8,7 @@ RUN mkdir -p /etc/nginx/ssl
 RUN openssl req -x509 -nodes \
     -out /etc/nginx/ssl/inception.crt \ 
     -keyout /etc/nginx/ssl/inception.key \
-    -subj "/C=MA/L=KH/O=1337/OU=STUDENT/CN=yrrhaibi.1337.ma"
+    -subj "/C=MA/L=KH/O=1337/OU=STUDENT/CN=yrrhaibi.42.fr"
 
 RUN mkdir -p /var/run/nginx
 
